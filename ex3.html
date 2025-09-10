@@ -7,10 +7,11 @@
       <h1>Shopping List</h1>
       <p>Get it done today</p>
       
-      <input type="text" id="item"> 
-      <button onclick="addItem()" type="button">Enter</button> 
+        <!-- add HTML code here -->
 
-      <ul id="list">
+      <input id="userinput" type="text" placeholder="enter item">
+      <button id="enter" onclick="addListAfterClick()">Enter</button>
+      <ul>
          <li>Notebook</li>
          <li>Jello</li>
          <li>Spinach</li>
@@ -20,22 +21,21 @@
       </ul>
       
       <script>
-         function addItem() {
-            // get the value from input
-            var itemValue = document.getElementById("item").value;
-            
-            if (itemValue.trim() !== "") {   // check not empty
-               // create a new li
-               var li = document.createElement("li");
-               li.textContent = itemValue;
+      
+        // add code here
+         function addListAfterClick(){
+            var newItem = document.createElement("li");
+            var text = document.getElementById("userinput").value;
+            var ul = document.getElementsByTagName("ul")[0];
+            if (text.length > 0){
+               var node = document.createTextNode(text);
+               newItem.appendChild(node);
+               ul.append(newItem);
+               document.getElementById("userinput").value ="";
 
-               // append li to ul
-               document.getElementById("list").appendChild(li);
-
-               // clear input
-               document.getElementById("item").value = "";
             }
          }
+
       </script>
  
    </body>
